@@ -1,0 +1,160 @@
+[
+  {
+    "filename": "./tests/sources/ClassComponent/ClassComponent.jsx",
+    "type": "contextTypes",
+    "assignmentType": "ClassProperty",
+    "loc": {
+      "start": {
+        "line": 8,
+        "column": 2,
+        "index": 158
+      },
+      "end": {
+        "line": 13,
+        "column": 4,
+        "index": 329
+      }
+    },
+    "properties": [
+      {
+        "key": "currentUser",
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 4,
+            "index": 186
+          },
+          "end": {
+            "line": 9,
+            "column": 15,
+            "index": 197
+          }
+        }
+      },
+      {
+        "key": "currentTeam",
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 4,
+            "index": 221
+          },
+          "end": {
+            "line": 10,
+            "column": 15,
+            "index": 232
+          }
+        }
+      },
+      {
+        "key": "location",
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 4,
+            "index": 256
+          },
+          "end": {
+            "line": 11,
+            "column": 12,
+            "index": 264
+          }
+        }
+      },
+      {
+        "key": "router",
+        "loc": {
+          "start": {
+            "line": 12,
+            "column": 4,
+            "index": 288
+          },
+          "end": {
+            "line": 12,
+            "column": 10,
+            "index": 294
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filename": "./tests/sources/ClassComponent/ClassComponent.jsx",
+    "type": "childContextTypes",
+    "assignmentType": "ClassProperty",
+    "loc": {
+      "start": {
+        "line": 15,
+        "column": 2,
+        "index": 333
+      },
+      "end": {
+        "line": 20,
+        "column": 4,
+        "index": 498
+      }
+    },
+    "properties": [
+      {
+        "key": "currentUser",
+        "loc": {
+          "start": {
+            "line": 16,
+            "column": 4,
+            "index": 366
+          },
+          "end": {
+            "line": 16,
+            "column": 15,
+            "index": 377
+          }
+        }
+      },
+      {
+        "key": "currentTeam",
+        "loc": {
+          "start": {
+            "line": 17,
+            "column": 4,
+            "index": 401
+          },
+          "end": {
+            "line": 17,
+            "column": 15,
+            "index": 412
+          }
+        }
+      },
+      {
+        "key": "location",
+        "loc": {
+          "start": {
+            "line": 18,
+            "column": 4,
+            "index": 436
+          },
+          "end": {
+            "line": 18,
+            "column": 12,
+            "index": 444
+          }
+        }
+      },
+      {
+        "key": "router",
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 4,
+            "index": 468
+          },
+          "end": {
+            "line": 19,
+            "column": 10,
+            "index": 474
+          }
+        }
+      }
+    ]
+  }
+]

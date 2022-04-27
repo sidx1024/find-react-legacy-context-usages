@@ -1,0 +1,60 @@
+{
+  "name": "find-react-legacy-context-usages",
+  "version": "1.0.9",
+  "description": "Finds usages of React Legacy Context and generates a report",
+  "main": "src/index.js",
+  "bin": "./src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node tests/index.js",
+    "prepublishOnly": "tsc && npm test",
+    "local-test": "node src/index.js \"/Users/sid/Work/apolloio/leadgenie/assets/**/*.{js,jsx}\" --root=/Users/sid/Work/apolloio/leadgenie/ --report-file=./tests/out.json",
+    "local-test-2": "node src/index.js \"./tests/sources/ClassComponent/**/*.{js,jsx}\" --root=./tests/sources/  --report-file=./tests/out.json"
+  },
+  "engines": {
+    "node": ">=16.9.0"
+  },
+  "engineStrict": true,
+  "types": "types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidx1024/find-react-legacy-context-usages.git"
+  },
+  "author": "sidx1024",
+  "keywords": [
+    "svelte",
+    "html",
+    "transform"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sidx1024/find-react-legacy-context-usages/issues"
+  },
+  "homepage": "https://github.com/sidx1024/find-react-legacy-context-usages#readme",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-decorators": "^7.17.9",
+    "@babel/plugin-proposal-export-default-from": "^7.16.7",
+    "@babel/plugin-proposal-export-namespace-from": "^7.16.7",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.16.7",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@types/babel__core": "^7.1.19",
+    "@types/node": "^17.0.27",
+    "@types/yargs": "^17.0.10",
+    "prettier": "^2.6.1",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/traverse": "^7.17.9",
+    "@babel/types": "^7.17.0",
+    "fast-glob": "^3.2.11",
+    "html-minifier": "^4.0.0",
+    "yargs": "^17.4.1"
+  },
+  "directories": {
+    "test": "tests"
+  }
+}
