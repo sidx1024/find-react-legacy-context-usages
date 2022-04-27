@@ -21,7 +21,7 @@ function getProperties(objectExpression, filename) {
     .filter((property) => {
       if (property.type !== 'ObjectProperty') {
         console.warn(
-          `Unsupported property type "${property.type}" in file "${filename}" at line ${property.loc?.start.line}`,
+          `Warning: Unsupported property type "${property.type}" in file "${filename}" at line ${property.loc?.start.line}`,
         );
         return false;
       }
@@ -47,7 +47,41 @@ function getLocation(location) {
   return { start, end };
 }
 
+/**
+ *
+ * @param {string} path
+ * @param {string} basePath
+ * @return {string}
+ */
+function trimBasePath(path, basePath) {
+  const basePathPattern = getRegExp(basePath);
+  return path.replace(basePathPattern, '');
+}
+
+/**
+ * Makes leading and trailing slash in the path optional
+ *
+ * @param {string} projectRoot
+ * @return {RegExp}
+ */
+function getRegExp(projectRoot) {
+  let pattern = projectRoot;
+
+  if (pattern.startsWith('/')) {
+    pattern = '/?' + pattern.slice(1);
+  }
+
+  if (pattern.endsWith('/')) {
+    pattern = pattern + '?';
+  } else {
+    pattern = pattern + '/?';
+  }
+
+  return new RegExp(pattern, 'g');
+}
+
 module.exports = {
   getSource,
   getProperties,
+  trimBasePath,
 };

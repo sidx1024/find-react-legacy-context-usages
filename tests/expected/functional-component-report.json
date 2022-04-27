@@ -1,6 +1,6 @@
 [
   {
-    "filename": "./tests/sources/FunctionalComponent/FunctionalComponent.jsx",
+    "filename": "FunctionalComponent/FunctionalComponent.jsx",
     "type": "contextTypes",
     "assignmentType": "AssignmentExpression",
     "loc": {
@@ -79,7 +79,7 @@
     ]
   },
   {
-    "filename": "./tests/sources/FunctionalComponent/FunctionalComponent.jsx",
+    "filename": "FunctionalComponent/FunctionalComponent.jsx",
     "type": "childContextTypes",
     "assignmentType": "AssignmentExpression",
     "loc": {

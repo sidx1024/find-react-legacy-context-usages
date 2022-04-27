@@ -8,7 +8,7 @@ const fg = require('fast-glob');
 const babel = require('@babel/core');
 const traverse = require('@babel/traverse').default;
 
-const { getSource, getProperties } = require('./utils');
+const { getSource, getProperties, trimBasePath } = require('./utils');
 
 /**
  *
@@ -48,6 +48,7 @@ const argv = yargs
     },
   )
   .demandCommand()
+  .demandOption(['root', 'report-file'])
   .help().argv;
 
 const pathGlob = argv._[0];
@@ -78,6 +79,7 @@ async function main({ pathGlob, reportFile, root }) {
   const usages = [];
 
   for (const filename of files) {
+    const relativeFilename = trimBasePath(path.resolve(filename), path.resolve(root));
     const code = await fs.readFile(filename, { encoding: 'utf-8' });
     if (code.includes('contextTypes') || code.includes('childContextTypes')) {
       const ast = await babel.parseAsync(code, { filename, root });
@@ -104,15 +106,15 @@ async function main({ pathGlob, reportFile, root }) {
               if (objectExpression) {
                 if (objectExpression.type === 'ObjectExpression') {
                   usages.push({
-                    filename,
+                    filename: relativeFilename,
                     type: contextType,
                     assignmentType: 'ClassProperty',
                     loc: contextTypeClassProperty.loc,
-                    properties: getProperties(objectExpression, filename),
+                    properties: getProperties(objectExpression, relativeFilename),
                   });
                 } else {
                   console.warn(
-                    `Unsupported context type value "${objectExpression.type}" in file "${filename}" at line ${objectExpression.loc?.start.line}`,
+                    `Warning: Unsupported context type value "${objectExpression.type}" in file "${relativeFilename}" at line ${objectExpression.loc?.start.line}`,
                   );
                 }
               }
@@ -124,15 +126,15 @@ async function main({ pathGlob, reportFile, root }) {
             if (toCode(path.node.left).endsWith(`.${contextType}`)) {
               if (path.node.right.type === 'ObjectExpression') {
                 usages.push({
-                  filename,
+                  filename: relativeFilename,
                   type: contextType,
                   assignmentType: 'AssignmentExpression',
                   loc: path.node.left.loc,
-                  properties: getProperties(path.node.right, filename),
+                  properties: getProperties(path.node.right, relativeFilename),
                 });
               } else {
                 console.warn(
-                  `Unsupported context type value "${path.node.right.type}" in file "${filename}" at line ${path.node.right.loc?.start.line}`,
+                  `Warning: Unsupported context type value "${path.node.right.type}" in file "${relativeFilename}" at line ${path.node.right.loc?.start.line}`,
                 );
               }
             }

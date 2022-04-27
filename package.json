@@ -7,9 +7,7 @@
   "type": "commonjs",
   "scripts": {
     "test": "node tests/index.js",
-    "prepublishOnly": "tsc && npm test",
-    "local-test": "node src/index.js \"/Users/sid/Work/apolloio/leadgenie/assets/**/*.{js,jsx}\" --root=/Users/sid/Work/apolloio/leadgenie/ --report-file=./tests/out.json",
-    "local-test-2": "node src/index.js \"./tests/sources/ClassComponent/**/*.{js,jsx}\" --root=./tests/sources/  --report-file=./tests/out.json"
+    "prepublishOnly": "tsc && npm test"
   },
   "engines": {
     "node": ">=16.9.0"

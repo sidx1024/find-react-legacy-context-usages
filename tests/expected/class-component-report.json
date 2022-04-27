@@ -1,6 +1,6 @@
 [
   {
-    "filename": "./tests/sources/ClassComponent/ClassComponent.jsx",
+    "filename": "ClassComponent/ClassComponent.jsx",
     "type": "contextTypes",
     "assignmentType": "ClassProperty",
     "loc": {
@@ -79,7 +79,7 @@
     ]
   },
   {
-    "filename": "./tests/sources/ClassComponent/ClassComponent.jsx",
+    "filename": "ClassComponent/ClassComponent.jsx",
     "type": "childContextTypes",
     "assignmentType": "ClassProperty",
     "loc": {

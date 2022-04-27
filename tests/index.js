@@ -3,6 +3,8 @@ const exec = util.promisify(require('child_process').exec);
 const assert = require('assert');
 const fs = require('fs');
 
+const ROOT = './tests/sources/';
+
 /**
  *
  * @type {{name: string, fn: function(): Promise<*>}[]}
@@ -10,10 +12,9 @@ const fs = require('fs');
 let testsToRun = [];
 
 test('works with class component', async () => {
-  await clearTempDirectory();
   const reportFile = './tests/tmp/class-component-report.json';
   await exec(
-    `node src/index.js "./tests/sources/ClassComponent/**/*.{js,jsx}" --report-file="${reportFile}"`,
+    `node src/index.js "./tests/sources/ClassComponent/**/*.{js,jsx}" --root=${ROOT} --report-file="${reportFile}"`,
   );
   const actual = JSON.parse(fs.readFileSync(reportFile, { encoding: 'utf-8' }));
   const expected = JSON.parse(
@@ -26,7 +27,7 @@ test('works with functional component', async () => {
   await clearTempDirectory();
   const reportFile = './tests/tmp/functional-component-report.json';
   await exec(
-    `node src/index.js "./tests/sources/FunctionalComponent/**/*.{js,jsx}" --report-file="${reportFile}"`,
+    `node src/index.js "./tests/sources/FunctionalComponent/**/*.{js,jsx}" --root=${ROOT} --report-file="${reportFile}"`,
   );
   const actual = JSON.parse(fs.readFileSync(reportFile, { encoding: 'utf-8' }));
   const expected = JSON.parse(
