@@ -1,6 +1,6 @@
 {
   "name": "find-react-legacy-context-usages",
-  "version": "1.0.9",
+  "version": "1.0.0",
   "description": "Finds usages of React Legacy Context and generates a report",
   "main": "src/index.js",
   "bin": "./src/index.js",
