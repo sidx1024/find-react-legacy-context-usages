@@ -7,8 +7,15 @@ The title says it. See sample reports in [here](/tests/expected/class-component-
 ```shell
 npx find-react-legacy-context-usages \
     "./src/**/*.{js,jsx}" \
+    --root="./src" \
     --report-file="./legacy-context-usages-report.json"
 ```
+
+### Options
+
+`--root`: Root folder for sources where `.babelrc` exists.
+
+`--report-file`: Report file output path
 
 Important: Don't forget the double-quotes in path glob.
 
