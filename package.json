@@ -22,9 +22,8 @@
   },
   "author": "sidx1024",
   "keywords": [
-    "svelte",
-    "html",
-    "transform"
+    "react",
+    "context"
   ],
   "license": "MIT",
   "bugs": {
