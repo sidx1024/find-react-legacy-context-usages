@@ -17,3 +17,10 @@ export function getSource(node: {
  * @return {*}
  */
 export function getProperties(objectExpression: import('@babel/types').ObjectExpression, filename: string): any;
+/**
+ *
+ * @param {string} path
+ * @param {string} basePath
+ * @return {string}
+ */
+export function trimBasePath(path: string, basePath: string): string;

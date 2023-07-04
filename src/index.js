@@ -29,13 +29,13 @@ const argv = yargs
   .usage('$0 <path-glob> --report-file=<report-file>')
   .command(
     '<path-glob>',
-    'Path glob (Example: "src/**/*.{js,jsx}")',
+    'Path glob (Example: "src/**/*.{js,jsx,ts,tsx}")',
     (
       /** @type {{ positional: (arg0: string, arg1: { type: string; describe: string; }) => void; option: (arg0: string, arg1: { type: string; describe: string; }) => void; }} */ yargs,
     ) => {
       yargs.positional('path-glob', {
         type: 'string',
-        describe: 'Path to folder containing .js or .jsx files. Example "src/**/*.{js,jsx}"',
+        describe: 'Path to folder containing .js or .jsx files. Example "src/**/*.{js,jsx,ts,tsx}"',
       });
       yargs.option('root', {
         type: 'string',
@@ -82,7 +82,11 @@ async function main({ pathGlob, reportFile, root }) {
     const relativeFilename = trimBasePath(path.resolve(filename), path.resolve(root));
     const code = await fs.readFile(filename, { encoding: 'utf-8' });
     if (code.includes('contextTypes') || code.includes('childContextTypes')) {
-      const ast = await babel.parseAsync(code, { filename, root });
+      const ast = await babel.parseAsync(code, {
+        filename,
+        root,
+        presets: ['@babel/preset-typescript'],
+      });
       const toCode = (/** @type {object} */ node) => getSource(node, code);
       traverse(ast, {
         ClassDeclaration: (path) => {
