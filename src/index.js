@@ -113,6 +113,7 @@ async function main({ pathGlob, reportFile, root }) {
                     filename: relativeFilename,
                     type: contextType,
                     assignmentType: 'ClassProperty',
+                    // @ts-ignore
                     loc: contextTypeClassProperty.loc,
                     properties: getProperties(objectExpression, relativeFilename),
                   });
@@ -133,6 +134,7 @@ async function main({ pathGlob, reportFile, root }) {
                   filename: relativeFilename,
                   type: contextType,
                   assignmentType: 'AssignmentExpression',
+                  // @ts-ignore
                   loc: path.node.left.loc,
                   properties: getProperties(path.node.right, relativeFilename),
                 });
