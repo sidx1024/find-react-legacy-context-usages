@@ -6,7 +6,7 @@ The title says it. See sample reports in [here](/tests/expected/class-component-
 
 ```shell
 npx find-react-legacy-context-usages \
-    "./src/**/*.{js,jsx}" \
+    "./src/**/*.{js,jsx,ts,tsx}" \
     --root="./src" \
     --report-file="./legacy-context-usages-report.json"
 ```
